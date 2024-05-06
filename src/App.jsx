@@ -3,13 +3,14 @@ import './App.css'
 import SearchBar from './Components/SearchBar/SearchBar'
 import VideoFrame from './Components/VideoFrame/VideoFrame'
 import video1 from './assets/Videos/video1.mp4'
-import video2 from './assets/Videos/video2.mp4'
+import video2 from './assets/Videos/video2-min.mp4'
 import video3 from './assets/Videos/video3.mp4'
 
 function App() {
   
   const videoBox = useRef(null)
-
+  const videoId = 'YJDZcGSR3xw'  
+  // https://youtube.com/shorts/YJDZcGSR3xw?si=JizZvLOgdhuSQq9R
   return (
     <section className='App'>
       <SearchBar />
