@@ -107,12 +107,12 @@
                 justify-content: center;
                 align-items: center;
                 gap: 5px;
-                font-size: 18px;
+                font-size: 16px;
                 color: #fff;
             }
 
             i{
-                font-size: 35px;
+                font-size: 25px;
                 color: #fff;
             }
         }

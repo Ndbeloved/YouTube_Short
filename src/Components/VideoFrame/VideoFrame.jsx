@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
 import './VideoFrame.css'
+import Loading from '../Loading/Loading'
 
 const VideoFrame = ({bgColor, videoBox, video}) => {
     const [singleMode, setSingleMode] = useState(true)
     const [startX, setStartX] = useState(0)
     const [deltaY, setDeltaY] = useState(0)
     const [isInViewport, setIsInViewport] = useState(false)
+    const [videoLoaded, setVideoLoaded] = useState(false)
     const seeker = useRef(null)
     const bodySeeker = useRef(null)
     const videoRef = useRef(null)
@@ -28,6 +30,9 @@ const VideoFrame = ({bgColor, videoBox, video}) => {
         const observer = new IntersectionObserver(([entry])=>{
             console.log('intersecting')
             setIsInViewport(entry.isIntersecting)
+            if(entry.isIntersecting){
+                videoRef.current.load()
+            }
         }, options)
 
         if (videoRef.current) {
@@ -96,10 +101,22 @@ const VideoFrame = ({bgColor, videoBox, video}) => {
         }
     }
 
+    const handleLoadedData = ()=>{
+        setVideoLoaded(true)
+    }
+
+    const handleWaiting = ()=>{
+        setVideoLoaded(true)
+    }
+
+    const handleCanPlay = ()=>{
+        setVideoLoaded(false)
+    }
+
     
     return (
         <div className={singleMode ? 'videoframe single' : 'videoframe'}>
-            <div className={singleMode ? "main-video contain" : "main-video"} style={{background: bgColor}} onClick={handleClosingTab} onTouchStart={handleMouseDown} onTouchMove={handleMouseMove}>
+            <div className={singleMode ? "main-video contain" : "main-video"} style={{background: '#1d1d1d'}} onClick={handleClosingTab} onTouchStart={handleMouseDown} onTouchMove={handleMouseMove}>
                 {singleMode ? (
                     <div className="action-btns">
                         <div id='wrapper'>
@@ -125,7 +142,8 @@ const VideoFrame = ({bgColor, videoBox, video}) => {
                     <div className="bar" ref={seeker}></div>
                 </div>
 
-                <video muted loop controls={false} ref={videoRef}>
+                {videoLoaded && <Loading />}
+                <video muted loop controls={false} ref={videoRef} onLoadedData={handleLoadedData} onWaiting={handleWaiting} onCanPlay={handleCanPlay}>
                     <source src={video} type="video/mp4"/>
                     Your browser does not support the video tag.
                 </video>

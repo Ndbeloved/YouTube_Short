@@ -20,14 +20,14 @@
         border-radius: 10px;
 
         i{
-            font-size: 20px;
+            font-size: 17px;
             color: var(--text-primary900);
             background: transparent;
         }
 
         input{
             width: 100%;
-            font-size: 18px;
+            font-size: 16px;
             color: var(--text-primary900);
             background: transparent;
             outline: none;
@@ -37,7 +37,7 @@
 
         input::placeholder{
             color: #fff;
-            font-size: 18px;
+            font-size: 16px;
         }
     }
 }
