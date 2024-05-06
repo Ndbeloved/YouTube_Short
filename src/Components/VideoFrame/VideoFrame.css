@@ -1,0 +1,145 @@
+.videoframe{
+    position: relative;
+    min-height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 2fr 3fr;
+    place-items: center;
+    transition: .5s ease-in-out;
+    scroll-snap-align: start;
+
+    .main-video{
+        position: relative;
+        height: 100%;
+        aspect-ratio: 1 / 2;
+        overflow: hidden;
+
+       video{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 80;
+        object-fit: cover;
+        object-position: center;
+       }
+
+        .seeker{
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            height: 6px;
+
+            .bar{
+                height: 100%;
+                position: relative;
+                width: 40%;
+                background: red;
+            }
+        }
+    }
+
+    .main-video.contain{
+        position: relative;
+        min-height: 100vh;
+        min-width: 100%;
+    }
+
+    .comment{
+        position: relative;
+        min-width: 100vw;
+        height: 100%;
+        overflow-y: scroll;
+        background: #272727;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        /* transition: .5s ease-in-out;
+        transform-origin: 100%; */
+
+        .handle{
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 6px;
+            background: #fff;
+            border-radius: 20px;
+        }
+    }
+}
+
+.videoframe.single{
+    grid-template-rows: 1fr;
+
+
+    .main-video{
+        position: relative;
+        height: 100%;
+        width: 100vw;
+        overflow: hidden;
+
+        video{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 80;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .action-btns{
+            position: absolute;
+            right: 5%;
+            top: 35%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 90;
+
+            #wrapper{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+                font-size: 18px;
+                color: #fff;
+            }
+
+            i{
+                font-size: 35px;
+                color: #fff;
+            }
+        }
+
+        .seeker{
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            height: 6px;
+            z-index: 81;
+
+            .bar{
+                height: 100%;
+                position: relative;
+                width: 0%;
+                background: red;
+            }
+        }
+    }
+
+    .comment{
+        position: relative;
+        width: 100%;
+        height: 0%;
+        overflow-y: scroll;
+        /* transition: .5s ease-in-out;
+        transform-origin: 100%; */
+    }
+}

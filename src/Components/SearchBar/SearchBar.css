@@ -1,0 +1,43 @@
+.search-wrapper{
+    position: fixed;
+    left: 0;
+    top:0;
+    padding: 1rem 3%;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    z-index: 100;
+
+    #wrapper{
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        background: rgba(91, 91, 91, 0.6);
+        padding: .5rem 1rem;
+        border-radius: 10px;
+
+        i{
+            font-size: 20px;
+            color: var(--text-primary900);
+            background: transparent;
+        }
+
+        input{
+            width: 100%;
+            font-size: 18px;
+            color: var(--text-primary900);
+            background: transparent;
+            outline: none;
+            border: none;
+            padding: .2rem .5rem;
+        }
+
+        input::placeholder{
+            color: #fff;
+            font-size: 18px;
+        }
+    }
+}
