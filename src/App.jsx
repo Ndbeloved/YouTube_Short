@@ -5,6 +5,9 @@ import VideoFrame from './Components/VideoFrame/VideoFrame'
 import video1 from './assets/Videos/video1.mp4-min.mp4'
 import video2 from './assets/Videos/video2-min.mp4'
 import video3 from './assets/Videos/video3.mp4-min.mp4'
+import video4 from './assets/Videos/video4.mp4-min.mp4'
+import video5 from './assets/Videos/video5.mp4-min.mp4'
+import video6 from './assets/Videos/video6.mp4-min.mp4'
 
 function App() {
   
@@ -18,6 +21,12 @@ function App() {
         <VideoFrame bgColor={'green'} videoBox={videoBox} video={video1} />
         <VideoFrame bgColor={'red'} videoBox={videoBox} video={video2}/>
         <VideoFrame bgColor={'orange'} videoBox={videoBox} video={video3}/>
+        <VideoFrame bgColor={'green'} videoBox={videoBox} video={video4} />
+        <VideoFrame bgColor={'red'} videoBox={videoBox} video={video5}/>
+        <VideoFrame bgColor={'orange'} videoBox={videoBox} video={video6}/>
+        <VideoFrame bgColor={'green'} videoBox={videoBox} video={video3} />
+        <VideoFrame bgColor={'red'} videoBox={videoBox} video={video1}/>
+        <VideoFrame bgColor={'orange'} videoBox={videoBox} video={video4}/>
       </div>
     </section>
   )

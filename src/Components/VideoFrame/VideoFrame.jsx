@@ -31,7 +31,7 @@ const VideoFrame = ({bgColor, videoBox, video}) => {
             console.log('intersecting')
             setIsInViewport(entry.isIntersecting)
             if(entry.isIntersecting){
-                videoRef.current.load()
+                // videoRef.current.load()
             }
         }, options)
 
