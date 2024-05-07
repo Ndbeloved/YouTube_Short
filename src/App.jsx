@@ -2,31 +2,37 @@ import { useRef } from 'react'
 import './App.css'
 import SearchBar from './Components/SearchBar/SearchBar'
 import VideoFrame from './Components/VideoFrame/VideoFrame'
-import video1 from './assets/Videos/video1.mp4-min.mp4'
-import video2 from './assets/Videos/video2-min.mp4'
-import video3 from './assets/Videos/video3.mp4-min.mp4'
-import video4 from './assets/Videos/video4.mp4-min.mp4'
-import video5 from './assets/Videos/video5.mp4-min.mp4'
-import video6 from './assets/Videos/video6.mp4-min.mp4'
 
 function App() {
   
   const videoBox = useRef(null)
-  const videoId = 'YJDZcGSR3xw'  
-  // https://youtube.com/shorts/YJDZcGSR3xw?si=JizZvLOgdhuSQq9R
+  const data = [
+    {
+      link: 'https://res.cloudinary.com/dyd7vmolq/video/upload/v1715119751/Shorts/tpbk2xb23nivk8nkv0go.mp4'
+    },
+    {
+      link: 'https://res.cloudinary.com/dyd7vmolq/video/upload/v1715119752/Shorts/b0pgc2k4factjyr07tnb.mp4'
+    },
+    {
+      link: 'https://res.cloudinary.com/dyd7vmolq/video/upload/v1715119753/Shorts/ealk2zhaj3fqnpamldvy.mp4'
+    },
+    {
+      link: 'https://res.cloudinary.com/dyd7vmolq/video/upload/v1715119755/Shorts/iopos1tag4i6zwropt4g.mp4'
+    },
+    {
+      link: 'https://res.cloudinary.com/dyd7vmolq/video/upload/v1715119755/Shorts/wequuct6szclu3fo4l17.mp4'
+    },
+    {
+      link: 'https://res.cloudinary.com/dyd7vmolq/video/upload/v1715119764/Shorts/ngnasfdr1xugkn7lmsvw.mp4'
+    },
+  ]
   return (
     <section className='App'>
       <SearchBar />
       <div className="videos" ref={videoBox}>
-        <VideoFrame bgColor={'green'} videoBox={videoBox} video={video1} />
-        <VideoFrame bgColor={'red'} videoBox={videoBox} video={video2}/>
-        <VideoFrame bgColor={'orange'} videoBox={videoBox} video={video3}/>
-        <VideoFrame bgColor={'green'} videoBox={videoBox} video={video4} />
-        <VideoFrame bgColor={'red'} videoBox={videoBox} video={video5}/>
-        <VideoFrame bgColor={'orange'} videoBox={videoBox} video={video6}/>
-        <VideoFrame bgColor={'green'} videoBox={videoBox} video={video3} />
-        <VideoFrame bgColor={'red'} videoBox={videoBox} video={video1}/>
-        <VideoFrame bgColor={'orange'} videoBox={videoBox} video={video4}/>
+        {data.map((elem, index)=>(
+          <VideoFrame bgColor={'green'} videoBox={videoBox} video={elem.link} key={index}/>
+        ))}
       </div>
     </section>
   )
